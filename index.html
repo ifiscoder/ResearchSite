@@ -1,0 +1,745 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GNU Seva Foundation — Education, Livelihoods & Health in Rural Gujarat</title>
+<meta name="description" content="GNU Seva Foundation is a registered non-profit working across rural Gujarat on primary education, women's livelihoods and community health. Principal Investigator: Kashish Singh.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='30' fill='%231E4D3B'/%3E%3Cpath d='M18 40c4-12 14-18 28-18-2 14-10 22-22 22-2 0-4-1-6-4z' fill='%23E9A13B'/%3E%3Cpath d='M20 42c8-8 16-12 24-14' stroke='%231E4D3B' stroke-width='2' fill='none'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource-variable/fraunces@5/index.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource-variable/inter@5/index.css">
+<style>
+:root{
+  --cream:#FAF6EE; --paper:#FFFDF7; --ink:#23281F; --muted:#6B6F60;
+  --forest:#1E4D3B; --forest-2:#143528; --clay:#D95B29; --gold:#E9A13B;
+  --sage:#E3EBDD; --line:#E6DECB; --shadow:0 18px 40px -18px rgba(30,77,59,.25);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:92px}
+body{font-family:'Inter Variable',system-ui,sans-serif;background:var(--cream);color:var(--ink);line-height:1.65;overflow-x:hidden}
+h1,h2,h3,.serif{font-family:'Fraunces Variable',Georgia,serif;font-weight:600;letter-spacing:-.01em}
+img{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:1160px;margin:0 auto;padding:0 24px}
+.eyebrow{display:inline-flex;align-items:center;gap:8px;font-size:12px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--clay)}
+.eyebrow::before{content:"";width:22px;height:2px;background:var(--clay)}
+.btn{display:inline-flex;align-items:center;gap:10px;padding:14px 26px;border-radius:999px;font-weight:700;font-size:15px;border:2px solid transparent;cursor:pointer;transition:transform .25s ease,box-shadow .25s ease,background .25s}
+.btn-primary{background:var(--clay);color:#fff;box-shadow:0 10px 24px -10px rgba(217,91,41,.55)}
+.btn-primary:hover{transform:translateY(-3px)}
+.btn-ghost{border-color:var(--forest);color:var(--forest)}
+.btn-ghost:hover{background:var(--forest);color:#fff;transform:translateY(-3px)}
+.btn-gold{background:var(--gold);color:var(--forest-2)}
+.btn-gold:hover{transform:translateY(-3px)}
+
+/* ---------- top bar ---------- */
+.topbar{background:var(--forest-2);color:#DCE7DA;font-size:13px}
+.topbar .wrap{display:flex;justify-content:space-between;gap:16px;padding:8px 24px;flex-wrap:wrap}
+.topbar a{color:var(--gold);font-weight:600}
+.topbar .dot{opacity:.5;margin:0 6px}
+
+/* ---------- nav ---------- */
+nav{position:sticky;top:0;z-index:60;background:rgba(250,246,238,.92);backdrop-filter:blur(10px);border-bottom:1px solid transparent;transition:border-color .3s,box-shadow .3s}
+nav.scrolled{border-color:var(--line);box-shadow:0 8px 30px -18px rgba(30,77,59,.25)}
+.nav-in{display:flex;align-items:center;justify-content:space-between;padding:16px 24px;max-width:1160px;margin:0 auto}
+.logo{display:flex;align-items:center;gap:12px}
+.logo-mark{width:44px;height:44px;border-radius:12px;background:var(--forest);display:grid;place-items:center;flex:none}
+.logo-name{font-family:'Fraunces Variable',serif;font-size:21px;font-weight:700;color:var(--forest-2);line-height:1.1}
+.logo-sub{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.nav-links{display:flex;gap:28px;font-size:15px;font-weight:600;color:#3c4237}
+.nav-links a{position:relative;padding:6px 0}
+.nav-links a::after{content:"";position:absolute;left:0;bottom:0;width:0;height:2px;background:var(--clay);transition:width .25s}
+.nav-links a:hover::after{width:100%}
+.nav-cta{display:flex;align-items:center;gap:14px}
+.burger{display:none;background:none;border:none;cursor:pointer;flex-direction:column;gap:5px;padding:6px}
+.burger span{width:24px;height:2.5px;background:var(--forest-2);border-radius:2px;transition:.3s}
+.mobile-menu{display:none;background:var(--paper);border-bottom:1px solid var(--line);padding:10px 24px 22px}
+.mobile-menu a{display:block;padding:12px 4px;font-weight:700;color:var(--forest-2);border-bottom:1px dashed var(--line)}
+.mobile-menu.open{display:block}
+
+/* ---------- hero ---------- */
+.hero{padding:64px 0 84px;position:relative}
+.hero .wrap{display:grid;grid-template-columns:1.05fr .95fr;gap:56px;align-items:center}
+.hero h1{font-size:clamp(38px,5vw,60px);line-height:1.06;color:var(--forest-2);margin:18px 0 20px}
+.hero h1 em{font-style:italic;color:var(--clay)}
+.hero p.lead{font-size:18px;color:#4a4f43;max-width:520px;margin-bottom:30px}
+.hero-ctas{display:flex;gap:16px;flex-wrap:wrap}
+.hero-note{margin-top:26px;font-size:14px;color:var(--muted);display:flex;align-items:center;gap:10px}
+.hero-note .heart{color:var(--clay)}
+.hero-visual{position:relative}
+.hero-frame{border-radius:22px;overflow:hidden;box-shadow:var(--shadow);border:8px solid var(--paper);transform:rotate(1.2deg)}
+.float-card{position:absolute;background:var(--paper);border-radius:14px;box-shadow:var(--shadow);padding:14px 18px;font-size:13px;font-weight:700;color:var(--forest-2)}
+.fc-1{top:-18px;left:-22px;transform:rotate(-3deg)}
+.fc-1 strong{display:block;font-family:'Fraunces Variable',serif;font-size:24px;color:var(--clay)}
+.fc-2{bottom:-20px;right:-14px;transform:rotate(2deg);display:flex;align-items:center;gap:10px}
+.fc-2 .pulse{width:10px;height:10px;border-radius:50%;background:#3E9B6E;animation:pulse 1.6s infinite}
+@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(62,155,110,.5)}70%{box-shadow:0 0 0 10px rgba(62,155,110,0)}100%{box-shadow:0 0 0 0 rgba(62,155,110,0)}}
+.scribble{position:absolute;bottom:-46px;left:8px;font-family:'Fraunces Variable',serif;font-style:italic;color:var(--muted);font-size:15px;transform:rotate(-2deg)}
+
+/* ---------- marquee ---------- */
+.marquee{background:var(--sage);border-block:1px solid var(--line);padding:16px 0;overflow:hidden}
+.marquee-track{display:flex;gap:56px;width:max-content;animation:mq 30s linear infinite}
+.marquee span{font-size:13px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#4c6455;white-space:nowrap;display:flex;align-items:center;gap:56px}
+.marquee i{font-style:normal;color:var(--clay)}
+@keyframes mq{to{transform:translateX(-50%)}}
+
+/* ---------- sections ---------- */
+section{padding:92px 0}
+.sec-head{max-width:640px;margin-bottom:48px}
+.sec-head h2{font-size:clamp(28px,3.4vw,42px);color:var(--forest-2);margin:14px 0 14px;line-height:1.15}
+.sec-head p{color:#565b4d;font-size:16.5px}
+
+/* about */
+.about-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:60px;align-items:start}
+.about-copy p{margin-bottom:16px;color:#44493c}
+.about-copy p:first-of-type::first-letter{font-family:'Fraunces Variable',serif;font-size:52px;float:left;line-height:.9;padding:6px 10px 0 0;color:var(--clay)}
+.pull-quote{background:var(--forest);color:#F2EFE4;border-radius:20px;padding:36px 32px;position:relative;box-shadow:var(--shadow)}
+.pull-quote::before{content:"“";font-family:'Fraunces Variable',serif;font-size:110px;line-height:.6;color:var(--gold);display:block;margin-bottom:18px}
+.pull-quote p{font-family:'Fraunces Variable',serif;font-size:21px;line-height:1.45;font-style:italic}
+.pull-quote footer{margin-top:22px;display:flex;align-items:center;gap:14px}
+.pull-quote footer img{width:52px;height:52px;border-radius:50%;object-fit:cover;border:2px solid var(--gold)}
+.pull-quote footer b{display:block;color:var(--gold)}
+.pull-quote footer small{color:#BFD3C4}
+.values{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:26px}
+.value{background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:18px;font-size:14px}
+.value b{display:block;font-family:'Fraunces Variable',serif;font-size:17px;color:var(--forest);margin-bottom:6px}
+
+/* programs */
+#programs{background:var(--paper);border-block:1px solid var(--line)}
+.prog-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:28px}
+.prog{border:1px solid var(--line);border-radius:20px;overflow:hidden;background:var(--cream);transition:transform .3s,box-shadow .3s;display:flex;flex-direction:column}
+.prog:hover{transform:translateY(-6px);box-shadow:var(--shadow)}
+.prog .ph{height:230px;overflow:hidden}
+.prog .ph img{width:100%;height:100%;object-fit:cover;transition:transform .8s ease}
+.prog:hover .ph img{transform:scale(1.06)}
+.prog .body{padding:26px 26px 28px;flex:1;display:flex;flex-direction:column}
+.prog .tag{align-self:flex-start;font-size:11px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;background:var(--sage);color:var(--forest);padding:5px 12px;border-radius:999px;margin-bottom:14px}
+.prog h3{font-size:22px;color:var(--forest-2);margin-bottom:10px}
+.prog p{font-size:15px;color:#565b4d;flex:1}
+.prog .meta{margin-top:18px;padding-top:16px;border-top:1px dashed var(--line);display:flex;justify-content:space-between;font-size:13px;font-weight:700;color:var(--muted)}
+.prog .meta b{color:var(--clay)}
+
+/* impact */
+#impact{background:var(--forest-2);color:#EAF2E8}
+#impact .eyebrow{color:var(--gold)}#impact .eyebrow::before{background:var(--gold)}
+#impact h2{color:#fff}
+.impact-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:22px;margin-top:52px}
+.stat{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);border-radius:18px;padding:30px 24px;text-align:center;transition:background .3s}
+.stat:hover{background:rgba(255,255,255,.1)}
+.stat .num{font-family:'Fraunces Variable',serif;font-size:44px;font-weight:700;color:var(--gold);line-height:1}
+.stat .lbl{margin-top:10px;font-size:14px;color:#BFD3C4}
+.impact-foot{margin-top:34px;font-size:13.5px;color:#9FB8A6;display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.impact-foot a{color:var(--gold);text-decoration:underline}
+
+/* stories */
+.story-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:26px}
+.story{background:var(--paper);border:1px solid var(--line);border-radius:18px;padding:30px;position:relative;transition:transform .3s,box-shadow .3s}
+.story:hover{transform:translateY(-6px);box-shadow:var(--shadow)}
+.story .q{font-family:'Fraunces Variable',serif;font-size:17.5px;line-height:1.5;color:#3a3f33;font-style:italic}
+.story .who{margin-top:22px;display:flex;align-items:center;gap:12px}
+.story .av{width:46px;height:46px;border-radius:50%;display:grid;place-items:center;font-weight:800;color:#fff;font-size:15px;flex:none}
+.story .who b{display:block;font-size:15px;color:var(--forest-2)}
+.story .who small{color:var(--muted);font-size:13px}
+
+/* team */
+#team{background:var(--paper);border-block:1px solid var(--line)}
+.team-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:44px;align-items:stretch}
+.pi-card{display:grid;grid-template-columns:220px 1fr;background:var(--cream);border:1px solid var(--line);border-radius:20px;overflow:hidden;box-shadow:var(--shadow)}
+.pi-card .photo{position:relative}
+.pi-card .photo img{width:100%;height:100%;object-fit:cover}
+.pi-card .photo::after{content:"";position:absolute;inset:0;box-shadow:inset -20px 0 30px -22px rgba(0,0,0,.25)}
+.pi-body{padding:28px}
+.pi-body .role{font-size:11px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--clay)}
+.pi-body h3{font-size:26px;color:var(--forest-2);margin:8px 0 12px}
+.pi-body p{font-size:14.5px;color:#565b4d;margin-bottom:14px}
+.pi-mail{display:inline-flex;align-items:center;gap:8px;font-size:13.5px;font-weight:700;color:var(--forest);background:var(--sage);padding:9px 14px;border-radius:999px;margin-top:4px}
+.pi-mail:hover{background:#d3e2cc}
+.team-list{display:flex;flex-direction:column;gap:14px}
+.t-member{display:flex;gap:16px;align-items:center;background:var(--cream);border:1px solid var(--line);border-radius:16px;padding:16px 18px;transition:transform .25s}
+.t-member:hover{transform:translateX(6px)}
+.t-member .av{width:52px;height:52px;border-radius:50%;display:grid;place-items:center;font-weight:800;color:#fff;flex:none;font-size:16px}
+.t-member b{display:block;color:var(--forest-2);font-size:16px}
+.t-member small{color:var(--muted);font-size:13px}
+.team-note{font-size:13.5px;color:var(--muted);background:var(--sage);border-radius:14px;padding:14px 18px;border:1px dashed #b9cdb0}
+
+/* transparency */
+.trans-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:56px;align-items:center}
+.donut-wrap{display:flex;justify-content:center}
+.donut{width:280px;height:280px;border-radius:50%;background:conic-gradient(var(--forest) 0 72%,var(--gold) 72% 84%,var(--clay) 84% 93%,#9FB8A6 93% 100%);display:grid;place-items:center;box-shadow:var(--shadow)}
+.donut-hole{width:168px;height:168px;border-radius:50%;background:var(--cream);display:grid;place-items:center;text-align:center}
+.donut-hole b{font-family:'Fraunces Variable',serif;font-size:34px;color:var(--forest-2)}
+.donut-hole small{font-size:12px;color:var(--muted)}
+.ledger{list-style:none;margin:26px 0;display:flex;flex-direction:column;gap:14px}
+.ledger li{display:flex;align-items:center;gap:12px;font-size:15px}
+.ledger .sw{width:14px;height:14px;border-radius:4px;flex:none}
+.ledger b{margin-left:auto;font-family:'Fraunces Variable',serif;font-size:17px;color:var(--forest-2)}
+.report-links{display:flex;gap:12px;flex-wrap:wrap}
+.report-links a{font-size:13.5px;font-weight:700;color:var(--forest);border:1.5px solid var(--forest);border-radius:999px;padding:9px 16px;transition:.25s}
+.report-links a:hover{background:var(--forest);color:#fff}
+
+/* updates */
+#updates{background:var(--paper);border-block:1px solid var(--line)}
+.news-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:26px}
+.news{border:1px solid var(--line);border-radius:16px;padding:26px;background:var(--cream);transition:transform .3s,box-shadow .3s}
+.news:hover{transform:translateY(-5px);box-shadow:var(--shadow)}
+.news time{font-size:12px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--clay)}
+.news h3{font-size:19px;margin:10px 0 8px;color:var(--forest-2)}
+.news p{font-size:14.5px;color:#565b4d}
+
+/* get involved */
+.involve-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:26px}
+.involve{border-radius:20px;padding:34px 30px;color:#fff;position:relative;overflow:hidden;transition:transform .3s}
+.involve:hover{transform:translateY(-6px)}
+.involve h3{font-size:23px;margin-bottom:12px}
+.involve p{font-size:14.5px;opacity:.92;margin-bottom:22px}
+.involve a{font-weight:800;text-decoration:underline;text-underline-offset:4px}
+.iv-1{background:var(--clay)}.iv-2{background:var(--forest)}.iv-3{background:#8A5A2B}
+.involve .big{position:absolute;right:-16px;bottom:-30px;font-family:'Fraunces Variable',serif;font-size:130px;opacity:.14;font-style:italic}
+
+/* faq */
+.faq{max-width:780px;margin:0 auto}
+.faq-item{border:1px solid var(--line);border-radius:14px;background:var(--paper);margin-bottom:12px;overflow:hidden}
+.faq-q{width:100%;display:flex;justify-content:space-between;align-items:center;gap:16px;background:none;border:none;padding:20px 24px;font:700 16px 'Inter Variable',sans-serif;color:var(--forest-2);cursor:pointer;text-align:left}
+.faq-q .ic{flex:none;width:28px;height:28px;border-radius:50%;background:var(--sage);color:var(--forest);display:grid;place-items:center;font-size:16px;transition:transform .3s}
+.faq-item.open .ic{transform:rotate(45deg);background:var(--clay);color:#fff}
+.faq-a{max-height:0;overflow:hidden;transition:max-height .4s ease}
+.faq-a p{padding:0 24px 22px;font-size:15px;color:#565b4d}
+
+/* contact */
+#contact{background:var(--forest-2);color:#EAF2E8}
+#contact .eyebrow{color:var(--gold)}#contact .eyebrow::before{background:var(--gold)}
+#contact h2{color:#fff}
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:56px;margin-top:48px}
+.c-info p{color:#BFD3C4;font-size:15.5px;margin-bottom:26px;max-width:420px}
+.c-row{display:flex;gap:14px;align-items:flex-start;margin-bottom:18px;font-size:15px}
+.c-row .ic{width:42px;height:42px;border-radius:12px;background:rgba(255,255,255,.08);display:grid;place-items:center;flex:none;color:var(--gold)}
+.c-row b{display:block;color:#fff}
+.c-row a{color:var(--gold);font-weight:600}
+.c-row a:hover{text-decoration:underline}
+.c-form{background:var(--paper);border-radius:20px;padding:34px;color:var(--ink);box-shadow:var(--shadow)}
+.c-form h3{font-size:22px;color:var(--forest-2);margin-bottom:18px}
+.f-row{margin-bottom:14px}
+.f-row label{display:block;font-size:12.5px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);margin-bottom:6px}
+.f-row input,.f-row textarea,.f-row select{width:100%;border:1.5px solid var(--line);border-radius:10px;padding:12px 14px;font:500 15px 'Inter Variable',sans-serif;background:var(--cream);color:var(--ink);transition:border-color .2s}
+.f-row input:focus,.f-row textarea:focus,.f-row select:focus{outline:none;border-color:var(--forest)}
+.c-form .btn{width:100%;justify-content:center}
+
+/* footer */
+footer{background:#0E241B;color:#9FB8A6;padding:60px 0 30px;font-size:14px}
+.f-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:40px;margin-bottom:44px}
+.f-grid h4{color:#fff;font-family:'Fraunces Variable',serif;font-size:17px;margin-bottom:16px}
+.f-grid a{display:block;padding:4px 0;transition:color .2s}
+.f-grid a:hover{color:var(--gold)}
+.f-bottom{border-top:1px solid rgba(255,255,255,.1);padding-top:24px;display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;font-size:13px}
+.f-bottom i{font-style:italic;color:var(--gold)}
+
+/* modal + toast */
+.modal{position:fixed;inset:0;background:rgba(20,30,24,.55);backdrop-filter:blur(4px);z-index:100;display:none;align-items:center;justify-content:center;padding:20px}
+.modal.open{display:flex}
+.modal-card{background:var(--paper);border-radius:22px;max-width:460px;width:100%;padding:34px;position:relative;animation:pop .35s ease}
+@keyframes pop{from{transform:scale(.92);opacity:0}to{transform:scale(1);opacity:1}}
+.modal-close{position:absolute;top:14px;right:14px;width:36px;height:36px;border-radius:50%;border:none;background:var(--sage);color:var(--forest);font-size:17px;cursor:pointer}
+.amt-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:18px 0 12px}
+.amt{border:2px solid var(--line);border-radius:12px;padding:12px 6px;text-align:center;font-weight:800;color:var(--forest-2);cursor:pointer;background:var(--cream);transition:.2s}
+.amt.sel{border-color:var(--clay);background:#FBEADF;color:var(--clay)}
+.impact-hint{font-size:13px;color:var(--muted);background:var(--sage);border-radius:10px;padding:10px 14px;margin-bottom:16px}
+#toast{position:fixed;bottom:26px;left:50%;transform:translate(-50%,80px);background:var(--forest-2);color:#fff;padding:14px 26px;border-radius:999px;font-size:14.5px;font-weight:700;box-shadow:var(--shadow);z-index:120;transition:transform .45s cubic-bezier(.2,.9,.3,1.2);display:flex;gap:10px;align-items:center;max-width:92vw;text-align:center}
+#toast.show{transform:translate(-50%,0)}
+#toast .tick{color:var(--gold)}
+
+/* reveal */
+.reveal{opacity:0;transform:translateY(28px);transition:opacity .7s ease,transform .7s ease}
+.reveal.in{opacity:1;transform:none}
+.d1{transition-delay:.1s}.d2{transition-delay:.2s}.d3{transition-delay:.3s}
+
+@media (max-width:980px){
+  .hero .wrap,.about-grid,.trans-grid,.team-grid,.contact-grid{grid-template-columns:1fr}
+  .prog-grid,.story-grid,.news-grid,.involve-grid{grid-template-columns:1fr 1fr}
+  .impact-grid{grid-template-columns:repeat(2,1fr)}
+  .nav-links{display:none}.burger{display:flex}
+  .pi-card{grid-template-columns:1fr}
+  .pi-card .photo{height:280px}
+  .f-grid{grid-template-columns:1fr 1fr}
+  .hero-visual{margin-top:26px}
+}
+@media (max-width:640px){
+  .prog-grid,.story-grid,.news-grid,.involve-grid,.values{grid-template-columns:1fr}
+  .topbar .wrap{justify-content:center;text-align:center}
+  section{padding:70px 0}
+}
+@media (prefers-reduced-motion:reduce){
+  *{animation:none!important;transition:none!important}
+  .reveal{opacity:1;transform:none}
+}
+</style>
+</head>
+<body>
+
+<!-- ======= TOP BAR ======= -->
+<div class="topbar">
+  <div class="wrap">
+    <span>A registered non-profit · Est. 2019 · Vadodara, Gujarat</span>
+    <span><a href="mailto:kashishsingh19@gnu.ac.in">kashishsingh19@gnu.ac.in</a><span class="dot">•</span><a href="tel:+919879541207">+91 98795 41207</a></span>
+  </div>
+</div>
+
+<!-- ======= NAV ======= -->
+<nav id="nav">
+  <div class="nav-in">
+    <a class="logo" href="#top">
+      <span class="logo-mark">
+        <svg width="26" height="26" viewBox="0 0 64 64" fill="none"><path d="M14 46c5-16 17-24 36-24-2.5 18-13 28-28 28-3 0-5.5-1.5-8-4z" fill="#E9A13B"/><path d="M17 48c10-10 20-15 30-18" stroke="#FAF6EE" stroke-width="2.5" stroke-linecap="round"/></svg>
+      </span>
+      <span>
+        <span class="logo-name">GNU Seva Foundation</span><br>
+        <span class="logo-sub">small hands · steady change</span>
+      </span>
+    </a>
+    <div class="nav-links">
+      <a href="#about">About</a><a href="#programs">Programs</a><a href="#impact">Impact</a><a href="#team">Team</a><a href="#transparency">Transparency</a><a href="#contact">Contact</a>
+    </div>
+    <div class="nav-cta">
+      <button class="btn btn-primary" data-open-donate style="padding:11px 22px">Donate</button>
+      <button class="burger" id="burger" aria-label="Menu"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="#about">About</a><a href="#programs">Programs</a><a href="#impact">Impact</a><a href="#team">Team</a><a href="#transparency">Transparency</a><a href="#updates">Updates</a><a href="#contact">Contact</a>
+  </div>
+</nav>
+
+<!-- ======= HERO ======= -->
+<header class="hero" id="top">
+  <div class="wrap">
+    <div>
+      <span class="eyebrow">GNU Seva Foundation · Vadodara</span>
+      <h1>Change that begins at the <em>village chowk.</em></h1>
+      <p class="lead">We are a small team of teachers, nurses, tailors and students working with families across rural Gujarat on education, livelihoods and health — one household, one habit, one hopeful morning at a time.</p>
+      <div class="hero-ctas">
+        <button class="btn btn-primary" data-open-donate>Donate securely&nbsp;→</button>
+        <a class="btn btn-ghost" href="#programs">See our work</a>
+      </div>
+      <p class="hero-note"><span class="heart">♥</span> 380 volunteers · 72 villages · every rupee accounted for, every name remembered.</p>
+    </div>
+    <div class="hero-visual reveal">
+      <div class="float-card fc-1"><strong>11,400+</strong>lives touched since 2019</div>
+      <div class="hero-frame">
+        <img src="https://image.qwenlm.ai/public_source/fbbe362a-1aa4-4728-95b7-eadaccaee62d/1267efff1-c7e7-4a69-a639-59b86682c4f0.png" alt="GNU Seva Foundation volunteers teaching children under a neem tree in Mandvi village">
+      </div>
+      <div class="float-card fc-2"><span class="pulse"></span> Monsoon health camps now running</div>
+      <span class="scribble">↑ Saturday math circle, Mandvi taluka — our very first classroom.</span>
+    </div>
+  </div>
+</header>
+
+<!-- ======= MARQUEE ======= -->
+<div class="marquee" aria-hidden="true">
+  <div class="marquee-track">
+    <span>Working alongside <i>✦</i> Sahyog Collective <i>✦</i> Vidya Mitra Trust <i>✦</i> Shakti Self-Help Groups <i>✦</i> Annapurna Kitchen Network <i>✦</i> Udaan Youth Club <i>✦</i> GreenGrid Energy Co-op <i>✦</i> Prathamik Shala Sahyog <i>✦</i></span>
+    <span>Working alongside <i>✦</i> Sahyog Collective <i>✦</i> Vidya Mitra Trust <i>✦</i> Shakti Self-Help Groups <i>✦</i> Annapurna Kitchen Network <i>✦</i> Udaan Youth Club <i>✦</i> GreenGrid Energy Co-op <i>✦</i> Prathamik Shala Sahyog <i>✦</i></span>
+  </div>
+</div>
+
+<!-- ======= ABOUT ======= -->
+<section id="about">
+  <div class="wrap">
+    <div class="about-grid">
+      <div class="about-copy reveal">
+        <span class="eyebrow">Why we exist</span>
+        <h2 style="font-size:clamp(28px,3.2vw,40px);color:var(--forest-2);margin:14px 0 20px">It started with one blackboard, borrowed from a wedding pandal.</h2>
+        <p>In the summer of 2019, five of us began teaching eleven children under a neem tree in Mandvi because the nearest school bus had stopped coming. We had no plan, no funding and no name — just a blackboard, a box of chalk, and the stubborn belief that showing up consistently matters more than showing up impressively.</p>
+        <p>Today, GNU Seva Foundation runs learning centres, tailoring workshops and health camps across 72 villages. We are deliberately small, deliberately local, and deliberately slow: every program is piloted in one village, measured honestly, and only then scaled. When something fails — and some things have — we write about that too in our annual report.</p>
+        <p>We are not saving anyone. The villages we work in were never empty of talent; they were empty of opportunity. We just help carry the desks.</p>
+        <div class="values">
+          <div class="value"><b>Show up</b>Consistency over spectacle. Same faces, same Saturdays, year after year.</div>
+          <div class="value"><b>Ask first</b>Every program begins with a village meeting, not a proposal.</div>
+          <div class="value"><b>Open books</b>Our ledgers are public. All of them, every year.</div>
+        </div>
+      </div>
+      <aside class="pull-quote reveal d1">
+        <p>People ask me what our biggest program is. I tell them it's remembering names. Everything else — the laptops, the sewing machines, the stethoscopes — is just logistics.</p>
+        <footer>
+          <img src="https://image.qwenlm.ai/public_source/fbbe362a-1aa4-4728-95b7-eadaccaee62d/130d2a4b7-1ee0-48e4-83c8-3dae75227a65.png" alt="Kashish Singh, Principal Investigator, GNU Seva Foundation">
+          <span><b>Kashish Singh</b><small>Principal Investigator &amp; Founder</small></span>
+        </footer>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<!-- ======= PROGRAMS ======= -->
+<section id="programs">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">What we do</span>
+      <h2>Four programs, one promise: we stay until it works.</h2>
+      <p>Nothing here is a one-day drive. Each program runs on a multi-year cycle with baseline surveys, village committees and honest exit reviews.</p>
+    </div>
+    <div class="prog-grid">
+      <article class="prog reveal">
+        <div class="ph"><img src="https://image.qwenlm.ai/public_source/fbbe362a-1aa4-4728-95b7-eadaccaee62d/134e2609b-c1b2-4f2e-9f2c-9fb88a0fdcd6.png" alt="Students learning on a shared laptop at a GNU Seva learning centre"></div>
+        <div class="body">
+          <span class="tag">Education</span>
+          <h3>Pathshala Learning Centres</h3>
+          <p>After-school centres in 34 villages with trained local tutors, library corners and weekend math circles. We bridge the gap between the school's bench and the home's kitchen table — where homework actually gets done, or doesn't.</p>
+          <div class="meta"><span><b>2,350</b> children enrolled</span><span>34 centres</span></div>
+        </div>
+      </article>
+      <article class="prog reveal d1">
+        <div class="ph"><img src="https://image.qwenlm.ai/public_source/fbbe362a-1aa4-4728-95b7-eadaccaee62d/1d645eb0c-8870-4417-ad4c-58126db57ff1.png" alt="Women at a tailoring skills workshop run by GNU Seva Foundation"></div>
+        <div class="body">
+          <span class="tag">Livelihoods</span>
+          <h3>Silai Shakti Tailoring Schools</h3>
+          <p>Six-month tailoring and micro-enterprise courses for women, with machine ownership on completion, market linkages and a self-help-group savings circle. 640 graduates so far; 71% now earn from home.</p>
+          <div class="meta"><span><b>640</b> women trained</span><span>Batch 13 running</span></div>
+        </div>
+      </article>
+      <article class="prog reveal d2">
+        <div class="ph"><img src="https://image.qwenlm.ai/public_source/fbbe362a-1aa4-4728-95b7-eadaccaee62d/10d62a008-bfd4-4521-a777-da24e36d185b.png" alt="Doctor checking a villager's blood pressure at a Swasthya Abhiyan health camp"></div>
+        <div class="body">
+          <span class="tag">Health</span>
+          <h3>Swasthya Abhiyan Camps</h3>
+          <p>Monthly health camps with volunteer doctors: BP and sugar screening, antenatal check-ups, and a referral fund for families who need the district hospital but fear the bus fare more than the illness.</p>
+          <div class="meta"><span><b>96</b> camps held</span><span>18 volunteer doctors</span></div>
+        </div>
+      </article>
+      <article class="prog reveal d3">
+        <div class="ph"><img src="https://image.qwenlm.ai/public_source/fbbe362a-1aa4-4728-95b7-eadaccaee62d/1267efff1-c7e7-4a69-a639-59b86682c4f0.png" alt="Volunteers with students at an outdoor classroom"></div>
+        <div class="body">
+          <span class="tag">Community</span>
+          <h3>Udaan Youth Volunteer Corps</h3>
+          <p>College students from Vadodara adopt a village for a year — tutoring, digitising land records for elders, teaching grandparents to video-call their migrant children. Small things. Enormous things.</p>
+          <div class="meta"><span><b>380</b> active volunteers</span><span>9 colleges</span></div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ======= IMPACT ======= -->
+<section id="impact">
+  <div class="wrap">
+    <div class="sec-head reveal" style="margin-bottom:0">
+      <span class="eyebrow">Impact, counted honestly</span>
+      <h2>Numbers we can stand behind.</h2>
+      <p style="color:#BFD3C4">Every figure below comes from our village-level registers and is audited annually. We count children present, not children enrolled on paper.</p>
+    </div>
+    <div class="impact-grid">
+      <div class="stat reveal"><div class="num"><span class="count" data-n="11400">0</span>+</div><div class="lbl">lives touched across 72 villages</div></div>
+      <div class="stat reveal d1"><div class="num"><span class="count" data-n="2350">0</span></div><div class="lbl">children in active learning centres</div></div>
+      <div class="stat reveal d2"><div class="num"><span class="count" data-n="640">0</span></div><div class="lbl">women graduated from Silai Shakti</div></div>
+      <div class="stat reveal d3"><div class="num"><span class="count" data-n="96">0</span></div><div class="lbl">health camps since 2019</div></div>
+    </div>
+    <p class="impact-foot">📖 Methodology, baseline data and the years we fell short — all in our <a href="#transparency">annual reports</a>.</p>
+  </div>
+</section>
+
+<!-- ======= STORIES ======= -->
+<section id="stories">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">Voices from the field</span>
+      <h2>The work, in their words.</h2>
+    </div>
+    <div class="story-grid">
+      <article class="story reveal">
+        <p class="q">“I stitched my first blouse in Batch 9. Last month my daughter stitched mine for Diwali. The machine they gave me has a name in our house — we call her Lakshmi.”</p>
+        <div class="who"><span class="av" style="background:var(--clay)">MB</span><span><b>Meena ben Prajapati</b><small>Silai Shakti graduate, Jambuda</small></span></div>
+      </article>
+      <article class="story reveal d1">
+        <p class="q">“Earlier I copied sums from the board and never understood them. At the centre, Didi makes me explain the sum back to her. Now maths is my favourite. I want to be an engineer of buses.”</p>
+        <div class="who"><span class="av" style="background:var(--forest)">AR</span><span><b>Arjun Rathwa, age 12</b><small>Pathshala centre, Mandvi</small></span></div>
+      </article>
+      <article class="story reveal d2">
+        <p class="q">“Many NGOs come, take photographs and leave. These people stayed through the floods of 2023 and reopened the centre in nine days. That is when I stopped calling them visitors.”</p>
+        <div class="who"><span class="av" style="background:#8A5A2B">HD</span><span><b>Headmaster R. M. Chauhan</b><small>ZP Primary School, Vaghodia block</small></span></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ======= TEAM ======= -->
+<section id="team">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">The people</span>
+      <h2>A small team that answers its own phone.</h2>
+    </div>
+    <div class="team-grid">
+      <div class="pi-card reveal">
+        <div class="photo"><img src="https://image.qwenlm.ai/public_source/fbbe362a-1aa4-4728-95b7-eadaccaee62d/130d2a4b7-1ee0-48e4-83c8-3dae75227a65.png" alt="Portrait of Kashish Singh, Principal Investigator of GNU Seva Foundation"></div>
+        <div class="pi-body">
+          <span class="role">Principal Investigator &amp; Founder</span>
+          <h3>Kashish Singh</h3>
+          <p>Kashish leads field research, program design and the annual impact audit. She began GNU Seva as a weekend tutoring circle while completing her postgraduate work in development studies, and still teaches the Saturday math circle in Mandvi whenever she can.</p>
+          <p>She reads every email the foundation receives — including the complaints, <em>especially</em> the complaints.</p>
+          <a class="pi-mail" href="mailto:kashishsingh19@gnu.ac.in">✉ kashishsingh19@gnu.ac.in</a>
+        </div>
+      </div>
+      <div class="team-list reveal d1">
+        <div class="t-member"><span class="av" style="background:var(--forest)">RP</span><span><b>Ravi Patel</b><small>Programs Lead · 6 yrs in the field, ex-ASHA coordinator</small></span></div>
+        <div class="t-member"><span class="av" style="background:var(--clay)">AD</span><span><b>Dr. Anjali Desai</b><small>Health Advisor · volunteer physician, civil hospital Vadodara</small></span></div>
+        <div class="t-member"><span class="av" style="background:#8A5A2B)">FS</span><span><b>Farhan Sheikh</b><small>Volunteer Coordinator · runs the Udaan youth corps</small></span></div>
+        <div class="t-member"><span class="av" style="background:var(--gold);color:var(--forest-2)">NB</span><span><b>Nisha ben Barot</b><small>Accounts &amp; Ledger Keeper · publishes our open books</small></span></div>
+        <p class="team-note">Plus 380 volunteers across 9 colleges and 72 villages. We hire from the villages we serve first — always.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======= TRANSPARENCY ======= -->
+<section id="transparency">
+  <div class="wrap">
+    <div class="trans-grid">
+      <div class="donut-wrap reveal">
+        <div class="donut"><div class="donut-hole"><span><b>72%</b><br><small>of every ₹100 goes<br>straight to programs</small></span></div></div>
+      </div>
+      <div class="reveal d1">
+        <span class="eyebrow">Open books</span>
+        <h2 style="font-size:clamp(28px,3.2vw,40px);color:var(--forest-2);margin:14px 0 10px">Where the money goes, every year.</h2>
+        <p style="color:#565b4d">FY 2024–25, audited figures. Operations include rent for two centres, one scooter's petrol, and chai — chai is a program expense, we refuse to pretend otherwise.</p>
+        <ul class="ledger">
+          <li><span class="sw" style="background:var(--forest)"></span> Programs &amp; field work <b>72%</b></li>
+          <li><span class="sw" style="background:var(--gold)"></span> Operations &amp; staff <b>12%</b></li>
+          <li><span class="sw" style="background:var(--clay)"></span> Fundraising &amp; outreach <b>9%</b></li>
+          <li><span class="sw" style="background:#9FB8A6"></span> Emergency reserve <b>7%</b></li>
+        </ul>
+        <div class="report-links">
+          <a href="#" onclick="return false">Annual Report 2024–25 (PDF)</a>
+          <a href="#" onclick="return false">Audited Accounts 2024–25</a>
+          <a href="#" onclick="return false">FCRA &amp; Registration Certificates</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======= UPDATES ======= -->
+<section id="updates">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">Field notes</span>
+      <h2>Latest from the villages.</h2>
+    </div>
+    <div class="news-grid">
+      <article class="news reveal"><time>2 Sep 2025</time><h3>40 laptops reach Jambuda ZP school</h3><p>Refurbished by our Udaan volunteers over the summer, each with Gujarati typing practice pre-installed and a strict "games after fractions" policy that nobody enforces.</p></article>
+      <article class="news reveal d1"><time>14 Aug 2025</time><h3>Monsoon health camp series wraps up in Mandvi</h3><p>1,120 screenings across six camps; 34 referrals supported by the travel fund. Special thanks to Dr. Desai's team for braving the flooded causeway twice.</p></article>
+      <article class="news reveal d2"><time>21 Jun 2025</time><h3>Batch 12 of Silai Shakti graduates — 48 women</h3><p>Every graduate received her machine. Three have already formed a joint tailoring unit; we'll report their first-year numbers, good or bad, next June.</p></article>
+    </div>
+  </div>
+</section>
+
+<!-- ======= GET INVOLVED ======= -->
+<section id="involve">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">Join in</span>
+      <h2>Three ways to carry a desk with us.</h2>
+    </div>
+    <div class="involve-grid">
+      <div class="involve iv-1 reveal"><span class="big">₹</span><h3>Give monthly</h3><p>₹500 a month keeps one child in the learning centre for a term — notebooks, snacks and tutor time. Cancel anytime; we'll still thank you.</p><a href="#" data-open-donate>Become a monthly donor</a></div>
+      <div class="involve iv-2 reveal d1"><span class="big">✋</span><h3>Volunteer a Saturday</h3><p>No experience needed. We'll train you, feed you dal-rice, and introduce you to a child who will absolutely quiz you on multiplication tables.</p><a href="#contact">Apply to volunteer</a></div>
+      <div class="involve iv-3 reveal d2"><span class="big">🤝</span><h3>Partner with us</h3><p>Colleges, clinics, co-operatives: we co-run programs with institutions that commit for years, not photo-ops. Write to our PI directly.</p><a href="mailto:kashishsingh19@gnu.ac.in">kashishsingh19@gnu.ac.in</a></div>
+    </div>
+  </div>
+</section>
+
+<!-- ======= FAQ ======= -->
+<section id="faq" style="background:var(--paper);border-block:1px solid var(--line)">
+  <div class="wrap">
+    <div class="sec-head reveal" style="margin:0 auto 40px;text-align:center;max-width:560px">
+      <span class="eyebrow" style="justify-content:center">Fair questions</span>
+      <h2>Things people politely wonder about us.</h2>
+    </div>
+    <div class="faq">
+      <div class="faq-item"><button class="faq-q">How do I know my donation is actually used well?<span class="ic">+</span></button><div class="faq-a"><p>Our audited accounts and village-level registers are published every year on this site, and any donor can request the raw ledger by email. We also invite donors to visit any centre unannounced — the chai is on us.</p></div></div>
+      <div class="faq-item"><button class="faq-q">Will I receive a receipt and tax exemption certificate?<span class="ic">+</span></button><div class="faq-a"><p>Yes. Every donation receives a numbered receipt, and 80G tax-exemption certificates are issued within 7 working days. Monthly donors get a consolidated yearly statement each April.</p></div></div>
+      <div class="faq-item"><button class="faq-q">I'm a student. Can I really help, or do you need experts?<span class="ic">+</span></button><div class="faq-a"><p>Most of our tutors started as first-year students who "weren't good at anything except showing up." Showing up is the qualification. The Udaan corps onboards every August and January.</p></div></div>
+      <div class="faq-item"><button class="faq-q">Why do you work only in Gujarat?<span class="ic">+</span></button><div class="faq-a"><p>Because we can visit every centre within a day's drive and be accountable in person. Depth over spread. We'd rather do 72 villages properly than 700 villages photographically.</p></div></div>
+      <div class="faq-item"><button class="faq-q">Who do I contact if something seems off?<span class="ic">+</span></button><div class="faq-a"><p>Write directly to our Principal Investigator, Kashish Singh, at <b>kashishsingh19@gnu.ac.in</b>. Complaints are read before proposals — that's a house rule.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ======= CONTACT ======= -->
+<section id="contact">
+  <div class="wrap">
+    <div class="reveal">
+      <span class="eyebrow">Say hello</span>
+      <h2 style="font-size:clamp(28px,3.4vw,42px)">We reply within two working days.<br>Usually much faster.</h2>
+    </div>
+    <div class="contact-grid">
+      <div class="c-info reveal">
+        <p>Whether you want to volunteer, partner, question our numbers, or just know how Mandvi's math circle is doing — write to us. A human reads every message.</p>
+        <div class="c-row"><span class="ic">✉</span><span><b>Email</b><a href="mailto:kashishsingh19@gnu.ac.in">kashishsingh19@gnu.ac.in</a></span></div>
+        <div class="c-row"><span class="ic">☎</span><span><b>Phone / WhatsApp</b><a href="tel:+919879541207">+91 98795 41207</a> <small style="color:#9FB8A6">(10 am – 6 pm, Mon–Sat)</small></span></div>
+        <div class="c-row"><span class="ic">⌂</span><span><b>Field office</b>2nd Floor, Seva Bhavan, Alkapuri,<br>Vadodara, Gujarat 390007</span></div>
+        <div class="c-row"><span class="ic">♥</span><span><b>Visitors</b>Saturdays are open-house at every learning centre. Come as you are.</span></div>
+      </div>
+      <form class="c-form reveal d1" id="contactForm">
+        <h3>Write to the team</h3>
+        <div class="f-row"><label for="cfName">Your name</label><input id="cfName" required placeholder="e.g. Priya Sharma"></div>
+        <div class="f-row"><label for="cfMail">Email</label><input id="cfMail" type="email" required placeholder="you@example.com"></div>
+        <div class="f-row"><label for="cfTopic">I'm writing about</label><select id="cfTopic"><option>Volunteering</option><option>Donations &amp; receipts</option><option>Partnership</option><option>A question / concern</option><option>Just saying hello</option></select></div>
+        <div class="f-row"><label for="cfMsg">Message</label><textarea id="cfMsg" rows="4" required placeholder="Namaste! I'd like to..."></textarea></div>
+        <button class="btn btn-primary" type="submit">Send message →</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- ======= FOOTER ======= -->
+<footer>
+  <div class="wrap">
+    <div class="f-grid">
+      <div>
+        <h4 style="display:flex;align-items:center;gap:10px"><span class="logo-mark" style="width:36px;height:36px"><svg width="20" height="20" viewBox="0 0 64 64" fill="none"><path d="M14 46c5-16 17-24 36-24-2.5 18-13 28-28 28-3 0-5.5-1.5-8-4z" fill="#E9A13B"/><path d="M17 48c10-10 20-15 30-18" stroke="#FAF6EE" stroke-width="2.5" stroke-linecap="round"/></svg></span>GNU Seva Foundation</h4>
+        <p style="margin-top:12px;max-width:300px">A registered non-profit working on education, livelihoods and health in rural Gujarat since 2019. Small hands, steady change.</p>
+      </div>
+      <div><h4>Explore</h4><a href="#about">About us</a><a href="#programs">Programs</a><a href="#impact">Impact</a><a href="#updates">Field notes</a></div>
+      <div><h4>Trust</h4><a href="#transparency">Open books</a><a href="#faq">FAQs</a><a href="#" onclick="return false">Annual reports</a><a href="#" onclick="return false">Privacy promise</a></div>
+      <div><h4>Contact</h4><a href="mailto:kashishsingh19@gnu.ac.in">kashishsingh19@gnu.ac.in</a><a href="tel:+919879541207">+91 98795 41207</a><a href="#contact">Seva Bhavan, Vadodara</a></div>
+    </div>
+    <div class="f-bottom">
+      <span>© <span id="yearNow">2025</span> GNU Seva Foundation · Registered non-profit, Gujarat, India</span>
+      <span>Made with <i>care &amp; chai</i> in Vadodara</span>
+    </div>
+  </div>
+</footer>
+
+<!-- ======= DONATE MODAL ======= -->
+<div class="modal" id="donateModal" role="dialog" aria-modal="true" aria-label="Donate">
+  <div class="modal-card">
+    <button class="modal-close" id="donateClose" aria-label="Close">✕</button>
+    <span class="eyebrow">Donate</span>
+    <h3 style="font-size:26px;color:var(--forest-2);margin:10px 0 6px">Every rupee has a job here.</h3>
+    <p style="font-size:14px;color:var(--muted)">Choose an amount — we'll email you a secure payment link and your 80G receipt.</p>
+    <div class="amt-grid" id="amtGrid">
+      <button class="amt" data-a="500">₹500</button>
+      <button class="amt sel" data-a="1000">₹1,000</button>
+      <button class="amt" data-a="2500">₹2,500</button>
+      <button class="amt" data-a="5000">₹5,000</button>
+      <button class="amt" data-a="12000">₹12,000</button>
+      <button class="amt" data-a="custom">Other</button>
+    </div>
+    <div class="f-row" id="customRow" style="display:none"><label for="customAmt">Custom amount (₹)</label><input id="customAmt" type="number" min="50" placeholder="Enter amount"></div>
+    <div class="impact-hint" id="impactHint">₹1,000 keeps a child in the learning centre for two full terms.</div>
+    <button class="btn btn-primary" id="donateGo" style="width:100%;justify-content:center">Continue with ₹1,000 →</button>
+    <p style="font-size:12px;color:var(--muted);text-align:center;margin-top:12px">You'll receive a numbered receipt &amp; 80G certificate by email.</p>
+  </div>
+</div>
+
+<div id="toast"><span class="tick">✔</span><span id="toastMsg"></span></div>
+
+<script>
+(function(){
+  /* nav shadow */
+  var nav = document.getElementById('nav');
+  window.addEventListener('scroll', function(){ nav.classList.toggle('scrolled', window.scrollY > 8); }, {passive:true});
+
+  /* mobile menu */
+  var burger = document.getElementById('burger'), mMenu = document.getElementById('mobileMenu');
+  burger.addEventListener('click', function(){ mMenu.classList.toggle('open'); });
+  mMenu.querySelectorAll('a').forEach(function(a){ a.addEventListener('click', function(){ mMenu.classList.remove('open'); }); });
+
+  /* reveal on scroll */
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+  }, {threshold:.12});
+  document.querySelectorAll('.reveal').forEach(function(el){ io.observe(el); });
+
+  /* counters */
+  var cio = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(!e.isIntersecting) return;
+      var el = e.target, target = parseInt(el.getAttribute('data-n'),10), t0 = null;
+      cio.unobserve(el);
+      function step(ts){
+        if(!t0) t0 = ts;
+        var p = Math.min((ts - t0)/1600, 1);
+        var eased = 1 - Math.pow(1-p, 3);
+        el.textContent = Math.floor(target * eased).toLocaleString('en-IN');
+        if(p < 1) requestAnimationFrame(step);
+      }
+      requestAnimationFrame(step);
+    });
+  }, {threshold:.5});
+  document.querySelectorAll('.count').forEach(function(el){ cio.observe(el); });
+
+  /* faq accordion */
+  document.querySelectorAll('.faq-item').forEach(function(item){
+    var q = item.querySelector('.faq-q'), a = item.querySelector('.faq-a');
+    q.addEventListener('click', function(){
+      var open = item.classList.contains('open');
+      document.querySelectorAll('.faq-item.open').forEach(function(o){ o.classList.remove('open'); o.querySelector('.faq-a').style.maxHeight = null; });
+      if(!open){ item.classList.add('open'); a.style.maxHeight = a.scrollHeight + 'px'; }
+    });
+  });
+
+  /* toast */
+  var toast = document.getElementById('toast'), toastMsg = document.getElementById('toastMsg'), toastT;
+  function showToast(msg){
+    toastMsg.textContent = msg;
+    toast.classList.add('show');
+    clearTimeout(toastT);
+    toastT = setTimeout(function(){ toast.classList.remove('show'); }, 4200);
+  }
+
+  /* donate modal */
+  var modal = document.getElementById('donateModal');
+  var hints = {
+    500:'₹500 covers notebooks and snacks for one child for a term.',
+    1000:'₹1,000 keeps a child in the learning centre for two full terms.',
+    2500:'₹2,500 sponsors a woman\u2019s full tailoring course thread-kit.',
+    5000:'₹5,000 runs an entire village health camp for a day.',
+    12000:'₹12,000 puts a sewing machine in a graduate\u2019s hands — her Lakshmi.'
+  };
+  var curAmt = 1000;
+  function openModal(){ modal.classList.add('open'); document.body.style.overflow='hidden'; }
+  function closeModal(){ modal.classList.remove('open'); document.body.style.overflow=''; }
+  document.querySelectorAll('[data-open-donate]').forEach(function(b){ b.addEventListener('click', function(ev){ ev.preventDefault(); openModal(); }); });
+  document.getElementById('donateClose').addEventListener('click', closeModal);
+  modal.addEventListener('click', function(ev){ if(ev.target === modal) closeModal(); });
+  document.addEventListener('keydown', function(ev){ if(ev.key === 'Escape') closeModal(); });
+
+  var customRow = document.getElementById('customRow'), hint = document.getElementById('impactHint'), goBtn = document.getElementById('donateGo');
+  function refreshDonate(){
+    var label = '₹' + Number(curAmt).toLocaleString('en-IN');
+    goBtn.textContent = 'Continue with ' + label + ' →';
+    hint.textContent = hints[curAmt] || 'Every rupee is logged in our open ledger — thank you.';
+  }
+  document.querySelectorAll('.amt').forEach(function(b){
+    b.addEventListener('click', function(){
+      document.querySelectorAll('.amt').forEach(function(x){ x.classList.remove('sel'); });
+      b.classList.add('sel');
+      if(b.getAttribute('data-a') === 'custom'){
+        customRow.style.display = 'block';
+        curAmt = parseInt(document.getElementById('customAmt').value,10) || 100;
+        refreshDonate();
+      } else {
+        customRow.style.display = 'none';
+        curAmt = parseInt(b.getAttribute('data-a'),10);
+        refreshDonate();
+      }
+    });
+  });
+  document.getElementById('customAmt').addEventListener('input', function(){ curAmt = parseInt(this.value,10) || 100; refreshDonate(); });
+  goBtn.addEventListener('click', function(){
+    closeModal();
+    showToast('Dhanyavaad! A secure payment link & receipt details are on their way to your inbox.');
+  });
+
+  /* forms */
+  document.getElementById('contactForm').addEventListener('submit', function(ev){
+    ev.preventDefault();
+    var nm = document.getElementById('cfName').value.split(' ')[0] || 'friend';
+    showToast('Shukriya, ' + nm + '! Your message reached the team — we reply within two working days.');
+    this.reset();
+  });
+
+  /* year */
+  document.getElementById('yearNow').textContent = new Date().getFullYear();
+})();
+</script>
+</body>
+</html>
+
